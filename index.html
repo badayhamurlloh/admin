@@ -3,100 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baday Cerdas | Class Admin</title>
+    <title>Daftar Tunggakan</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 20px; color: #333; line-height: 1.6; }
-        .container { background: white; max-width: 600px; margin: auto; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; }
-        .sub-title { text-align: center; color: #7f8c8d; margin-bottom: 30px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-        .soal { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-        .opsi { display: block; margin: 8px 0; padding: 10px; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .opsi:hover { background: #f0f0f0; }
-        input[type="text"] { width: 95%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: #2c3e50; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 20px; }
-        #hasil { display: none; text-align: center; }
-        .btn-wa { background: #25d366; margin-top: 20px; display: block; padding: 15px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            margin: 0; 
+            padding: 20px; 
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 500px; 
+            margin: auto; 
+            background: #ffffff; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            color: #2d3436; 
+            text-align: center; 
+            font-size: 22px; 
+            margin-bottom: 25px; 
+        }
+        .person-card { 
+            background: #fff; 
+            border: 1px solid #dfe6e9; 
+            padding: 15px; 
+            margin: 15px 0; 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            transition: transform 0.2s;
+        }
+        .person-card:hover { transform: translateY(-5px); }
+        .profile-img { 
+            width: 70px; 
+            height: 70px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin-right: 20px; 
+            border: 3px solid #ff7675;
+        }
+        .info h3 { margin: 0; color: #2d3436; font-size: 16px; }
+        .info p { margin: 5px 0; color: #636e72; font-size: 13px; }
+        .badge { 
+            background: #ff7675; 
+            color: white; 
+            padding: 3px 10px; 
+            border-radius: 20px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Baday Cerdas</h1>
-    <div class="sub-title">Class Admin</div>
+    <div class="container">
+        <h1>Daftar Belum Bayar</h1>
 
-    <div id="quiz-form">
-        <div id="soal-container"></div>
-        <button onclick="hitungSkor()">Kirim Jawaban</button>
-    </div>
+        <div class="person-card">
+            <img src="https://i.ibb.co/3m20f6tG/20hZjcjS.jpg" alt="Foto Profil" class="profile-img">
+            <div class="info">
+                <h3>Nama Orang</h3>
+                <p>Keterangan: Tagihan Belum Lunas</p>
+                <span class="badge">BELUM BAYAR</span>
+            </div>
+        </div>
+        
+        </div>
 
-    <div id="hasil">
-        <h2>Skor Anda: <span id="skor"></span> / 40</h2>
-        <p>Hasil telah dihitung. Klik tombol di bawah untuk melapor ke Admin:</p>
-        <a id="link-wa" href="#" class="btn-wa">Kirim Skor ke Admin</a>
-    </div>
-</div>
-
-<script>
-    // 5 Soal Pilihan Ganda
-    const soalPG = [
-        { q: "Apa bahan utama Ender Chest?", a: "Obsidian", o: ["Cobblestone", "Obsidian", "Dirt", "Diamond"] },
-        { q: "Apa tindakan utama jika ada cheater?", a: "Ban", o: ["Dibiarkan", "Diajak bicara", "Ban", "Memberi item"] },
-        { q: "Tingkat cahaya agar mob tidak muncul?", a: "8", o: ["0", "5", "8", "15"] },
-        { q: "Sikap utama seorang admin?", a: "Netral", o: ["Sombong", "Pilih kasih", "Netral", "Cuek"] },
-        { q: "Apa fungsi Redstone Repeater?", a: "Delay sinyal", o: ["Sumber listrik", "Delay sinyal", "Hiasan", "Pintu"] }
-    ];
-
-    // 35 Soal Isian Singkat
-    const soalIsian = [
-        { q: "NBT tag item unbreakable?", a: "Unbreakable" }, { q: "Mob yang takut kucing?", a: "Creeper" },
-        { q: "Nama bos di End?", a: "Ender Dragon" }, { q: "Simbol kimia emas?", a: "Au" },
-        { q: "Planet terbesar?", a: "Jupiter" }, { q: "Rumus kimia air?", a: "H2O" },
-        { q: "Ibu kota Indonesia?", a: "Jakarta" }, { q: "Admin dilarang melakukan?", a: "Abuse" },
-        { q: "Boleh sebar IP server?", a: "Tidak" }, { q: "Sanksi jika rasis?", a: "Ban" },
-        { q: "Tugas utama admin?", a: "Melayani" }, { q: "Tindakan jika ada bug?", a: "Lapor" },
-        { q: "Mata uang negara Jepang?", a: "Yen" }, { q: "Warna bendera RI?", a: "Merah putih" },
-        { q: "Hasil dari 10 x 10?", a: "100" }, { q: "Akar kuadrat dari 144?", a: "12" },
-        { q: "Jumlah sisi persegi?", a: "4" }, { q: "Hasil dari 50 + 50?", a: "100" },
-        { q: "Jumlah sisi segitiga?", a: "3" }, { q: "Siapa penemu lampu?", a: "Edison" },
-        { q: "Bahan utama Obsidian?", a: "Lava" }, { q: "Bioma tempat Soul Sand?", a: "Nether" },
-        { q: "Bahan dasar Diamond?", a: "Ore" }, { q: "Kegunaan Potion?", a: "Efek" },
-        { q: "Apa sebutan untuk monster?", a: "Mob" }, { q: "Area aktif map?", a: "Chunk" },
-        { q: "Mata uang game?", a: "Money" }, { q: "Sifat wajib admin?", a: "Sabar" },
-        { q: "Boleh admin curang?", a: "Tidak" }, { q: "Bahasa Inggris Kucing?", a: "Cat" },
-        { q: "Bahasa Inggris Anjing?", a: "Dog" }, { q: "Bahan utama Kayu?", a: "Tree" },
-        { q: "Warna langit?", a: "Blue" }, { q: "Bentuk bumi?", a: "Bulat" },
-        { q: "Matahari terbit dari?", a: "Timur" }
-    ];
-
-    const container = document.getElementById('soal-container');
-
-    // Render Soal
-    soalPG.forEach((item, i) => {
-        let opts = item.o.map(o => `<label class="opsi"><input type="radio" name="pg${i}" value="${o}"> ${o}</label>`).join('');
-        container.innerHTML += `<div class="soal"><p>${i+1}. ${item.q}</p>${opts}</div>`;
-    });
-
-    soalIsian.forEach((item, i) => {
-        container.innerHTML += `<div class="soal"><p>${i+6}. ${item.q}</p><input type="text" id="isian${i}" placeholder="Jawaban..."></div>`;
-    });
-
-    function hitungSkor() {
-        let skor = 0;
-        soalPG.forEach((item, i) => {
-            const p = document.querySelector(`input[name="pg${i}"]:checked`);
-            if(p && p.value === item.a) skor++;
-        });
-        soalIsian.forEach((item, i) => {
-            if(document.getElementById('isian'+i).value.trim().toLowerCase() === item.a.toLowerCase()) skor++;
-        });
-
-        document.getElementById('skor').innerText = skor;
-        document.getElementById('quiz-form').style.display = 'none';
-        document.getElementById('hasil').style.display = 'block';
-
-        const pesan = `Halo Admin, saya telah menyelesaikan ujian Baday Cerdas dengan skor ${skor}/40.`;
-        document.getElementById('link-wa').href = `https://wa.me/628131431367?text=${encodeURIComponent(pesan)}`;
-    }
-</script>
 </body>
 </html>
