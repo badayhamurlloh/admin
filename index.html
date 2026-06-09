@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Tunggakan</title>
+    <title>Daftar Belum Bayar</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -36,16 +36,15 @@
             border-radius: 12px; 
             display: flex; 
             align-items: center; 
-            transition: transform 0.2s;
         }
-        .person-card:hover { transform: translateY(-5px); }
         .profile-img { 
-            width: 70px; 
-            height: 70px; 
+            width: 80px; 
+            height: 80px; 
             border-radius: 50%; 
-            object-fit: cover; 
+            object-fit: cover; /* Ini yang membuat foto pas dan tidak gepeng */
             margin-right: 20px; 
             border: 3px solid #ff7675;
+            flex-shrink: 0;
         }
         .info h3 { margin: 0; color: #2d3436; font-size: 16px; }
         .info p { margin: 5px 0; color: #636e72; font-size: 13px; }
@@ -65,8 +64,10 @@
     <div class="container">
         <h1>Daftar Belum Bayar</h1>
 
+        <!-- Profil Orang -->
         <div class="person-card">
-            <img src="https://i.ibb.co/3m20f6tG/20hZjcjS.jpg" alt="Foto Profil" class="profile-img">
+            <!-- Link foto yang sudah diperbaiki -->
+            <img src="https://i.ibb.co/TD2WHPH1/Screenshot-2026-06-09-15-06-22-108-com-google-android-apps-photos.jpg" alt="Foto Profil" class="profile-img">
             <div class="info">
                 <h3>Nama Orang</h3>
                 <p>Keterangan: Tagihan Belum Lunas</p>
@@ -74,7 +75,7 @@
             </div>
         </div>
         
-        </div>
+    </div>
 
 </body>
 </html>
