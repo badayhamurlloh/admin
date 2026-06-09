@@ -40,8 +40,9 @@
         .profile-img { 
             width: 80px; 
             height: 80px; 
-            border-radius: 50%; 
-            object-fit: cover; /* Ini yang membuat foto pas dan tidak gepeng */
+            /* Bagian ini yang diubah dari 50% menjadi 10px untuk efek kotak melengkung */
+            border-radius: 10px; 
+            object-fit: cover; 
             margin-right: 20px; 
             border: 3px solid #ff7675;
             flex-shrink: 0;
@@ -64,12 +65,10 @@
     <div class="container">
         <h1>Daftar Belum Bayar</h1>
 
-        <!-- Profil Orang -->
         <div class="person-card">
-            <!-- Link foto yang sudah diperbaiki -->
             <img src="https://i.ibb.co/TD2WHPH1/Screenshot-2026-06-09-15-06-22-108-com-google-android-apps-photos.jpg" alt="Foto Profil" class="profile-img">
             <div class="info">
-                <h3>Nama Orang</h3>
+                <h3>Farhan A.</h3>
                 <p>Keterangan: Tagihan Belum Lunas</p>
                 <span class="badge">BELUM BAYAR</span>
             </div>
