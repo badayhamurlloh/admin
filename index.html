@@ -3,77 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Belum Bayar</title>
+    <title>Profil & Status Pembayaran</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
         body { 
             font-family: 'Poppins', sans-serif; 
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); 
             margin: 0; 
             padding: 20px; 
             min-height: 100vh;
         }
+
         .container { 
             max-width: 500px; 
             margin: auto; 
             background: #ffffff; 
             padding: 30px; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+            border-radius: 25px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
         }
-        h1 { 
-            color: #2d3436; 
+
+        /* Hero Section (Foto Gede) */
+        .hero-section { 
             text-align: center; 
-            font-size: 22px; 
-            margin-bottom: 25px; 
+            padding-bottom: 20px; 
+            border-bottom: 2px dashed #d1d8e0; 
+            margin-bottom: 30px; 
         }
-        .person-card { 
-            background: #fff; 
-            border: 1px solid #dfe6e9; 
+        .hero-img { 
+            width: 180px; 
+            height: 180px; 
+            border-radius: 20px; 
+            object-fit: cover; 
+            border: 6px solid #fff; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+        }
+        .hero-name { 
+            font-size: 28px; 
+            font-weight: 600; 
+            color: #2d3436; 
+            margin: 20px 0 5px 0; 
+        }
+        /* Tambahan untuk Lokasi */
+        .hero-location { 
+            font-size: 14px; 
+            color: #636e72; 
+            margin-bottom: 10px; 
+        }
+        .hero-status { 
+            color: #d63031; 
+            font-weight: 600; 
+            background: #ffeaa7; 
+            padding: 5px 15px; 
+            border-radius: 50px; 
+            display: inline-block; 
+            margin-top: 10px;
+        }
+
+        /* Daftar Tagihan */
+        .list-section h2 { font-size: 18px; color: #636e72; margin-bottom: 15px; }
+        .card { 
+            background: #f8f9fa; 
+            border: 1px solid #e9ecef; 
             padding: 15px; 
-            margin: 15px 0; 
-            border-radius: 12px; 
+            margin: 10px 0; 
+            border-radius: 15px; 
             display: flex; 
+            justify-content: space-between; 
             align-items: center; 
         }
-        .profile-img { 
-            width: 80px; 
-            height: 80px; 
-            /* Bagian ini yang diubah dari 50% menjadi 10px untuk efek kotak melengkung */
-            border-radius: 10px; 
-            object-fit: cover; 
-            margin-right: 20px; 
-            border: 3px solid #ff7675;
-            flex-shrink: 0;
-        }
-        .info h3 { margin: 0; color: #2d3436; font-size: 16px; }
-        .info p { margin: 5px 0; color: #636e72; font-size: 13px; }
+        .item-name { font-weight: 600; color: #2d3436; }
         .badge { 
             background: #ff7675; 
             color: white; 
-            padding: 3px 10px; 
-            border-radius: 20px; 
-            font-size: 11px; 
+            padding: 5px 12px; 
+            border-radius: 10px; 
+            font-size: 12px; 
             font-weight: 600; 
-            display: inline-block;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Daftar Belum Bayar</h1>
+        <div class="hero-section">
+            <img src="https://i.ibb.co/TD2WHPH1/Screenshot-2026-06-09-15-06-22-108-com-google-android-apps-photos.jpg" alt="Farhan A." class="hero-img">
+            <h1 class="hero-name">Farhan A.</h1>
+            <div class="hero-location">📍 Kab. Jabar, Indramayu</div>
+            <div class="hero-status">BELUM MELUNASI</div>
+        </div>
 
-        <div class="person-card">
-            <img src="https://i.ibb.co/TD2WHPH1/Screenshot-2026-06-09-15-06-22-108-com-google-android-apps-photos.jpg" alt="Foto Profil" class="profile-img">
-            <div class="info">
-                <h3>Farhan A.</h3>
-                <p>Keterangan: Tagihan Belum Lunas</p>
+        <div class="list-section">
+            <h2>Daftar Tagihan:</h2>
+            
+            <div class="card">
+                <span class="item-name">Iuran Kebersihan</span>
+                <span class="badge">BELUM BAYAR</span>
+            </div>
+
+            <div class="card">
+                <span class="item-name">Kas Bulanan</span>
                 <span class="badge">BELUM BAYAR</span>
             </div>
         </div>
-        
     </div>
 
 </body>
